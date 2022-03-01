@@ -1,0 +1,6 @@
+setup.py
+gazebo_pusher.egg-info/PKG-INFO
+gazebo_pusher.egg-info/SOURCES.txt
+gazebo_pusher.egg-info/dependency_links.txt
+gazebo_pusher.egg-info/requires.txt
+gazebo_pusher.egg-info/top_level.txt
