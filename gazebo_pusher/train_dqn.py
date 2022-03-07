@@ -9,8 +9,10 @@ import random
 import os
 from datetime import datetime
 import pickle
+import warnings
 
 if __name__ == '__main__':
+    warnings.filterwarnings("ignore")
     env = gym.make('Planar5DoF-v0')
     actions = range(50)
     memory_capacity = 20000
@@ -36,9 +38,10 @@ if __name__ == '__main__':
         if epsilon > 0.1:
             epsilon *= decay
         for i in range(n_steps):
+            # print(state)
             q_values = model.predict(np.expand_dims(state.reshape(1,10), axis=0))
             # print(q_values)
-            # print(state)
+
             if (random.random() < epsilon):
                 action = np.random.choice(actions)
             else:
@@ -58,7 +61,7 @@ if __name__ == '__main__':
             policy_net.target_update()
         x_finals.append(x - 2.13)
         all_rewards.append(total_reward)
-        print("Total number of steps: %2d; Total reward: %2.2f; Epsilon: %3.2f; Final x: %3.2f" % (i, total_reward, epsilon, x-2.13))
+        print("Total number of steps: %2d; Total reward: %2.2f; Epsilon: %3.2f; Final x: %3.2f" % (i + 1, total_reward, epsilon, x-2.13))
     model.save('/home/arms/dqn3.h5')
     t = np.arange(n_episodes)
     today = datetime.now()

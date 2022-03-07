@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <robot name="box" xmlns:xacro="http://ros.org/wiki/xacro">
 
 
@@ -13,24 +14,23 @@
 
 <link name="box">
 	<visual>
-	<geometry>
-		<box size="1 1 1"/>
-	</geometry>
-	<origin xyz= "0 0 0"/>
+	   <geometry>
+		     <box size="1 1 1"/>
+     </geometry>
+	   <origin xyz= "5 0 0.5"/>
 	</visual>
 	<collision>
 		<geometry>
-		<box size="1 1 1"/>
+		    <box size="1 1 1"/>
 		</geometry>
-	<origin xyz= "0 0 0"/>
+	  <origin xyz= "5 0 0.5"/>
 	</collision>
 	<inertial>
-
 		<mass value="1.0"/>
 		<inertia ixx="0.17" ixy="0.0" ixz="0.0" iyy="0.17" iyz="0.0" izz="0.17" />
-		<origin xyz= "0 0 0"/>
-        </inertial>
-</link> 
+		<origin xyz= "5 0 0.5"/>
+  </inertial>
+</link>
 
 
 <joint name="basetoworld" type="planar">
@@ -46,9 +46,7 @@
 	<kd>1</kd>
 	<kp>10000</kp>
 	<maxVel>0.01</maxVel>
-</gazebo> 
+</gazebo>
 
 
 </robot>
-
-

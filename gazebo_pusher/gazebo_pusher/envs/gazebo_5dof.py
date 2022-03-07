@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from __future__ import print_function
 import gym
 import rospy
@@ -73,7 +74,6 @@ class GazeboPlanar5DofEnv(gym.Env):
 
 
 	def step(self, action):
-
 		angles = None
 		while angles is None:
 			try:
@@ -796,8 +796,6 @@ class GazeboPlanar5DofEnv(gym.Env):
 					break
 				self.motor5_pub.publish(Float64(msg2))
 				k = rospy.wait_for_message('/robot/joint_states', JointState, timeout = 5)
-				#print(msg)
-				#print(s.position)
 				if (abs(k.position[0] - msg2) < 0.01):
 					break
 				rate.sleep()
@@ -812,8 +810,6 @@ class GazeboPlanar5DofEnv(gym.Env):
 					break
 				self.motor5_pub.publish(Float64(msg2))
 				k = rospy.wait_for_message('/robot/joint_states', JointState, timeout = 5)
-				#print(msg)
-				#print(s.position)
 				if (abs(k.position[0] - msg2) < 0.01):
 					break
 				rate.sleep()
@@ -835,8 +831,6 @@ class GazeboPlanar5DofEnv(gym.Env):
 				rate.sleep()
 
 		angles = rospy.wait_for_message('/robot/joint_states', JointState, timeout = 5)
-
-
 		sensor1 = sensor2 = sensor3 = sensor4 = sensor5 = None
 		while  sensor1 is None and sensor2 is None and sensor3 is None and sensor4 is None and sensor5 is None:
 			try:
@@ -863,7 +857,7 @@ class GazeboPlanar5DofEnv(gym.Env):
 				reward = -1
 				print("State is out of range")
 		contact = [sensor1.states != [], sensor2.states != [], sensor3.states != [], sensor4.states != [], sensor5.states != []]
-		contact = map(int, contact)
+		contact = list(map(int, contact))
 		# if (abs(a.link_state.pose.position.x - self.pos_old) > 0.01):
 		# 	reward = 0.2
 		# # if (a.link_state.pose.position.x > 2):
@@ -876,15 +870,16 @@ class GazeboPlanar5DofEnv(gym.Env):
 		# elif (a.link_state.pose.position.x > 4):
 		# 	done = True
 		# 	reward = 1
-		reward = self.calculate_reward(a.link_state.pose.position.x, contact)
+		reward = self.calculate_reward(a.link_state.pose.position.x + 5, contact)
 		if (reward == -1 or reward == 1):
 			done = True
 		# print("Old position: "+str(self.pos_old)+" ; now position is: "+str(a.link_state.pose.position.x))
 		# self.pos_old = a.link_state.pose.position.x
 		# print(type(angles.position))
+		# print(contact)
 		state = angles.position + tuple(contact)
 		# state = self.states2obs(angles.position)
-		return state, reward, done, a.link_state.pose.position.x
+		return state, reward, done, a.link_state.pose.position.x + 5
 
 
 	def reset(self):
@@ -928,7 +923,7 @@ class GazeboPlanar5DofEnv(gym.Env):
 			except:
 				pass
 		contact = [sensor1.states != [], sensor2.states != [], sensor3.states != [], sensor4.states != [], sensor5.states != []]
-		contact = map(int, contact)
+		contact = list(map(int, contact))
 		state = angles.position + tuple(contact)
 		return state
 

@@ -6,7 +6,7 @@ import keras
 from keras import layers
 from keras.models import Sequential
 from keras.layers import Activation, Dense
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 import buffer
 import random
 
