@@ -40,3 +40,11 @@ In the second:
 $ cd /gazebo_pusher
 $ python3 train_dqn.py
 ```
+After that, the robot starts the training.
+
+### Some results
+To evaluate the results, at the end the graph is plotted showing the distance the box has moved and the total reward. One of the obtained results - 
+
+<p align="center">
+  <img width="1600" height="900" src="https://github.com/fenixkz/5dof_pusher/blob/main/pics/ddqn8layers07512.png">
+</p>
