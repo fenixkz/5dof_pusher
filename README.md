@@ -6,9 +6,13 @@ The objective of the experiment is to push the box to the maximum distance witho
 
 Initial configuration - 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/fenixkz/5dof_pusher/blob/main/pics/pusher_ex.png">
+  <img width="640" height="480" src="https://github.com/fenixkz/5dof_pusher/blob/main/pics/pusher_ex.png">
 </p>
 
 Goal (desired) configuration - 
-![Goal](https://github.com/fenixkz/5dof_pusher/blob/main/pics/pusher_ex1.png)
+<p align="center">
+  <img width="640" height="480" src="https://github.com/fenixkz/5dof_pusher/blob/main/pics/pusher_ex1.png">
+</p>
+
+
 
