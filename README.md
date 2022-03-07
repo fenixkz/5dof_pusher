@@ -16,19 +16,19 @@ Goal (desired) configuration -
 
 
 ### Requirements
-This project is dependable on different libraries. Please, be sure to install them before trying to run this project.
+This project is dependable on different libraries. Please, be sure to install them before trying to run this project. This branch was tested and implemented on ROS Noetic. For other ROS distributions some adjustement must be made beforehand. 
   - MoveIt
-    '$ sudo apt-get install ros-<your_distro>-moveit'  
+    `$ sudo apt-get install ros-<your_distro>-moveit`
   - ros-controllers
-$ sudo apt-get install ros-noetic-effort-controllers
-openai-gym
-pip install gym
-matplotlib
-pip install matplotlib
-yaml 
-pip install pyyaml
-tensorflow
-pip3 install tensorflow
-keras
-pip3 install keras
+    `$ sudo apt-get install ros-noetic-effort-controllers`
+  - openai-gym
+    `pip3 install gym`
+  - matplotlib
+    `pip3 install matplotlib`
+  - yaml 
+    `pip3 install pyyaml`
+  - tensorflow
+    `pip3 install tensorflow`
+  - keras
+    `pip3 install keras`
 
