@@ -15,4 +15,20 @@ Goal (desired) configuration -
 </p>
 
 
+### Requirements
+This project is dependable on different libraries. Please, be sure to install them before trying to run this project.
+  - MoveIt
+    '$ sudo apt-get install ros-<your_distro>-moveit'  
+  - ros-controllers
+$ sudo apt-get install ros-noetic-effort-controllers
+openai-gym
+pip install gym
+matplotlib
+pip install matplotlib
+yaml 
+pip install pyyaml
+tensorflow
+pip3 install tensorflow
+keras
+pip3 install keras
 
